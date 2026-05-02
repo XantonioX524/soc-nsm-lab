@@ -7,7 +7,7 @@ Está diseñado específicamente para entrenar y validar casos de uso de **Blue 
 ## Arquitectura del Laboratorio
 
 El entorno está compuesto por 4 máquinas virtuales segmentadas en una red interna, simulando un entorno corporativo monitorizado.
-![Topología de Red](infrastructure.png)
+![Topología de Red](SOC.png)
 ### Matriz de Direccionamiento IP
 | Rol                  | SO / Tecnología        | Dirección IP     | Descripción                                                         |
 | :------------------- | :--------------------- | :--------------- | :------------------------------------------------------------------ |
