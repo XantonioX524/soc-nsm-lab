@@ -22,7 +22,7 @@ services:
         chmod 777 /var/www/html/marketing/content
 
         mkdir -p /var/www/html/confidencial
-        echo "MegaCorpFlag{Fuzzing_encontro_el_archivo_secreto}" > /var/www/html/confidencial/secreto.txt
+        echo "MegaCorpFlag" > /var/www/html/confidencial/secreto.txt
         chmod 755 /var/www/html/confidencial
 
         cat << 'EOF' > /var/www/html/assets/style.css
