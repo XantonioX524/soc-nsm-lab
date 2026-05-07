@@ -91,6 +91,13 @@ sudo sed -i "s/^interface=.*/interface=$INTERFAZ_RED/" /opt/zeek/etc/node.cfg
 cat << 'EOF' > /opt/zeek/share/zeek/site/local.zeek
 @load tuning/json-logs
 export { redef record HTTP::Info += { post_body: string &log &optional; }; }
+
+event http_entity_data(c: connection, is_orig: bool, length: count, data: string) {
+    if ( is_orig && c?$http && c$http?$method && c$http$method == "POST" ) {
+        if ( ! c$http?$post_body ) { c$http$post_body = ""; }
+        if ( |c$http$post_body| < 2000 ) { c$http$post_body = string_cat(c$http$post_body, data); }
+    }
+}
 EOF
 
 echo "[*] Compilando configuración y desplegando motor de Zeek..."
